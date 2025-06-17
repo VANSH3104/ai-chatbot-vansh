@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.ai-chatbot" path="/org/gnome/shell/extensions/ai-chatbot/">
+    
+    <!-- Model Selection -->
+    <key name="enabled-models" type="as">
+      <default>["gpt-3.5-turbo", "llama2", "mistral"]</default>
+      <summary>Enabled AI Models</summary>
+      <description>List of AI models that are enabled and available for use</description>
+    </key>
+    
+    <key name="selected-models" type="as">
+      <default>["gpt-3.5-turbo"]</default>
+      <summary>Selected AI Models</summary>
+      <description>List of AI models currently selected for use in the chatbot</description>
+    </key>
+    
+    <!-- API Keys -->
+    <key name="openai-api-key" type="s">
+      <default>""</default>
+      <summary>OpenAI API Key</summary>
+      <description>API key for accessing OpenAI services</description>
+    </key>
+    
+    <key name="anthropic-api-key" type="s">
+      <default>""</default>
+      <summary>Anthropic API Key</summary>
+      <description>API key for accessing Anthropic Claude services</description>
+    </key>
+    <key name="openrouter-api-key" type="s">
+        <default>''</default>
+        <summary>OpenRouter API Key</summary>
+        <description>API key for OpenRouter service</description>
+    </key>
+    <key name="google-api-key" type="s">
+      <default>""</default>
+      <summary>Google AI API Key</summary>
+      <description>API key for accessing Google AI services</description>
+    </key>
+    
+    <key name="cohere-api-key" type="s">
+      <default>""</default>
+      <summary>Cohere API Key</summary>
+      <description>API key for accessing Cohere AI services</description>
+    </key>
+    
+    <!-- Local Model URLs -->
+    <key name="ollama-url" type="s">
+      <default>"http://localhost:11434"</default>
+      <summary>Ollama Server URL</summary>
+      <description>URL for the local Ollama server</description>
+    </key>
+    
+    <key name="lmstudio-url" type="s">
+      <default>"http://localhost:1234"</default>
+      <summary>LM Studio Server URL</summary>
+      <description>URL for the local LM Studio server</description>
+    </key>
+    
+    <key name="textgen-url" type="s">
+      <default>"http://localhost:5000"</default>
+      <summary>Text Generation WebUI URL</summary>
+      <description>URL for the Text Generation WebUI server</description>
+    </key>
+    
+    <!-- Model Parameters -->
+    <key name="max-tokens" type="i">
+      <default>1000</default>
+      <range min="100" max="4000"/>
+      <summary>Maximum Tokens</summary>
+      <description>Maximum number of tokens to generate in response</description>
+    </key>
+    
+    <key name="temperature" type="d">
+      <default>0.7</default>
+      <range min="0.0" max="2.0"/>
+      <summary>Temperature</summary>
+      <description>Controls randomness in response generation (0.0 = deterministic, 1.0 = creative)</description>
+    </key>
+    
+    <key name="top-p" type="d">
+      <default>0.9</default>
+      <range min="0.1" max="1.0"/>
+      <summary>Top P</summary>
+      <description>Nucleus sampling parameter for response generation</description>
+    </key>
+    
+    <key name="frequency-penalty" type="d">
+      <default>0.0</default>
+      <range min="-2.0" max="2.0"/>
+      <summary>Frequency Penalty</summary>
+      <description>Penalty for repeating tokens in response</description>
+    </key>
+    
+    <key name="presence-penalty" type="d">
+      <default>0.0</default>
+      <range min="-2.0" max="2.0"/>
+      <summary>Presence Penalty</summary>
+      <description>Penalty for using tokens that already appeared in conversation</description>
+    </key>
+    
+    <!-- UI Settings -->
+    <key name="theme" type="i">
+      <default>0</default>
+      <range min="0" max="3"/>
+      <summary>UI Theme</summary>
+      <description>Visual theme for the chatbot interface (0=Default, 1=Dark, 2=Light, 3=Colorful)</description>
+    </key>
+    
+    <key name="window-width" type="i">
+      <default>500</default>
+      <range min="300" max="800"/>
+      <summary>Window Width</summary>
+      <description>Width of the chatbot window in pixels</description>
+    </key>
+    
+    <key name="window-height" type="i">
+      <default>600</default>
+      <range min="400" max="900"/>
+      <summary>Window Height</summary>
+      <description>Height of the chatbot window in pixels</description>
+    </key>
+    
+    <key name="font-size" type="i">
+      <default>14</default>
+      <range min="10" max="20"/>
+      <summary>Font Size</summary>
+      <description>Font size for chat messages</description>
+    </key>
+    
+    <key name="show-avatars" type="b">
+      <default>true</default>
+      <summary>Show Avatars</summary>
+      <description>Whether to display user and AI avatars in chat</description>
+    </key>
+    
+    <key name="show-timestamps" type="b">
+      <default>false</default>
+      <summary>Show Timestamps</summary>
+      <description>Whether to display timestamps for chat messages</description>
+    </key>
+    
+    <!-- Behavior Settings -->
+    <key name="auto-clear" type="b">
+      <default>false</default>
+      <summary>Auto Clear Chat</summary>
+      <description>Automatically clear chat history when closing the extension</description>
+    </key>
+    
+    <key name="save-history" type="b">
+      <default>true</default>
+      <summary>Save Chat History</summary>
+      <description>Save chat history between sessions</description>
+    </key>
+    
+    <key name="max-history-length" type="i">
+      <default>50</default>
+      <range min="10" max="200"/>
+      <summary>Maximum History Length</summary>
+      <description>Maximum number of messages to keep in chat history</description>
+    </key>
+    
+    <key name="auto-switch-models" type="b">
+      <default>true</default>
+      <summary>Auto Switch Models</summary>
+      <description>Automatically switch to next model if current one fails</description>
+    </key>
+    
+    <key name="retry-count" type="i">
+      <default>3</default>
+      <range min="1" max="10"/>
+      <summary>Retry Count</summary>
+      <description>Number of times to retry failed requests</description>
+    </key>
+    
+    <key name="request-timeout" type="i">
+      <default>30</default>
+      <range min="10" max="120"/>
+      <summary>Request Timeout</summary>
+      <description>Timeout for API requests in seconds</description>
+    </key>
+    
+    <!-- Notifications -->
+    <key name="show-notifications" type="b">
+      <default>true</default>
+      <summary>Show Notifications</summary>
+      <description>Show desktop notifications for AI responses</description>
+    </key>
+    
+    <key name="notification-sound" type="b">
+      <default>false</default>
+      <summary>Notification Sound</summary>
+      <description>Play sound when showing notifications</description>
+    </key>
+    
+    <key name="notify-on-error" type="b">
+      <default>true</default>
+      <summary>Notify on Error</summary>
+      <description>Show notifications when errors occur</description>
+    </key>
+    
+    <!-- Keyboard Shortcuts -->
+    <key name="toggle-shortcut" type="as">
+      <default>["&lt;Super&gt;space"]</default>
+      <summary>Toggle Shortcut</summary>
+      <description>Keyboard shortcut to toggle chatbot visibility</description>
+    </key>
+    
+    <key name="clear-shortcut" type="as">
+      <default>["&lt;Ctrl&gt;&lt;Shift&gt;Delete"]</default>
+      <summary>Clear Chat Shortcut</summary>
+      <description>Keyboard shortcut to clear chat history</description>
+    </key>
+    
+    <!-- System Prompt -->
+    <key name="system-prompt" type="s">
+      <default>"You are a helpful AI assistant integrated into the GNOME desktop environment. Provide concise, accurate, and helpful responses to user queries. Be friendly and professional."</default>
+      <summary>System Prompt</summary>
+      <description>System prompt sent to AI models to set their behavior</description>
+    </key>
+    
+    <key name="custom-instructions" type="s">
+      <default>""</default>
+      <summary>Custom Instructions</summary>
+      <description>Additional custom instructions for the AI</description>
+    </key>
+    
+    <!-- Privacy Settings -->
+    <key name="anonymize-requests" type="b">
+      <default>false</default>
+      <summary>Anonymize Requests</summary>
+      <description>Remove potentially identifying information from requests</description>
+    </key>
+    
+    <key name="local-only" type="b">
+      <default>false</default>
+      <summary>Local Only Mode</summary>
+      <description>Only use local AI models, disable cloud services</description>
+    </key>
+    
+    <!-- Advanced Settings -->
+    <key name="enable-streaming" type="b">
+      <default>true</default>
+      <summary>Enable Streaming</summary>
+      <description>Enable streaming responses for supported models</description>
+    </key>
+    
+    <key name="context-window" type="i">
+      <default>10</default>
+      <range min="1" max="50"/>
+      <summary>Context Window</summary>
+      <description>Number of previous messages to include in context</description>
+    </key>
+    
+    <key name="enable-markdown" type="b">
+      <default>true</default>
+      <summary>Enable Markdown</summary>
+      <description>Render markdown formatting in chat messages</description>
+    </key>
+    
+    <key name="enable-code-highlighting" type="b">
+      <default>true</default>
+      <summary>Enable Code Highlighting</summary>
+      <description>Highlight code blocks in chat messages</description>
+    </key>
+    
+    <!-- Debug Settings -->
+    <key name="debug-mode" type="b">
+      <default>false</default>
+      <summary>Debug Mode</summary>
+      <description>Enable debug logging and extra information</description>
+    </key>
+    
+    <key name="log-requests" type="b">
+      <default>false</default>
+      <summary>Log Requests</summary>
+      <description>Log API requests and responses for debugging</description>
+    </key>
+    
+  </schema>
+</schemalist>

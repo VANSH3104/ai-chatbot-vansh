@@ -1,0 +1,87 @@
+.ai-chatbot-container {
+    background-color: rgba(40, 42, 54, 0.95);
+    border-radius: 12px;
+    padding: 12px;
+    min-width: 350px;
+    width: 450px;
+    min-height: 400px;
+    height: auto;
+    max-height: 80vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-chatbot-chat-area {
+    min-height: 300px;
+    height: auto;
+    max-height: calc(80vh - 200px);
+    padding: 8px 0;
+    -st-vfade-offset: 12px;
+    overflow-y: auto;
+}
+
+.ai-chatbot-chat-box {
+    spacing: 12px;
+    padding-right: 4px;
+    height: auto;
+}
+
+.chat-message-user,
+.chat-message-ai {
+    spacing: 8px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    width: auto;
+    max-width: none;
+}
+
+.chat-message-text {
+    font-size: 13px;
+    color: #f8f8f2;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    overflow: visible;
+}
+
+.chat-message-box:last-child tt {
+    display: block;
+    white-space: pre;
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 6px;
+    background-color: rgba(40, 42, 54, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+    max-width: 100%;
+    word-wrap: normal;
+}
+
+StScrollBar {
+    padding: 0;
+    min-width: 8px;
+}
+
+StScrollView.vfade {
+    -st-vfade-offset: 32px;
+}
+
+StScrollBar StBin#trough {
+    background-color: rgba(68, 71, 90, 0.3);
+    border-radius: 8px;
+}
+
+StScrollBar StButton#vhandle {
+    background-color: rgba(248, 248, 242, 0.5);
+    border-radius: 8px;
+    margin: 2px;
+    min-width: 8px;
+}
+
+.ai-chatbot-input-box {
+    spacing: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}

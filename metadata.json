@@ -1,0 +1,8 @@
+{
+  "uuid": "ai-chatbot@vansh",
+  "name": "AI Chatbot",
+  "description": "An AI chatbot GNOME Shell extension with multi-model support (OpenAI, Ollama, LM Studio).",
+  "version": 1,
+  "shell-version": ["45", "44", "43", "42"],
+  "settings-schema": "org.gnome.shell.extensions.ai-chatbot"
+}
